@@ -185,6 +185,7 @@ public abstract class AbstractScalaTestMojo extends AbstractMojo {
     private List<String> config() {
         List<String> c = new ArrayList<String>();
         for(String pair : splitOnComma(config)){
+            System.setProperty(pair.split("=")[0], pair.split("=")[1]);
             c.add("-D"+pair);
         }
         return c;
